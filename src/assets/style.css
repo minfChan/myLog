@@ -1,0 +1,240 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a,
+a:link {
+  color: #8E000D;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/*=============== Common ===============*/
+.clearfix:after {
+	height: 0;
+	visibility: hidden;
+	content: ".";
+	display: block;
+	clear: both;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.ac {
+	text-align: center;
+}
+
+.ar {
+	text-align: right;
+}
+
+::-webkit-credentials-auto-fill-button,
+::-webkit-caps-lock-indicator,
+::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input:-moz-placeholder, 
+textarea:-moz-placeholder,
+input:-ms-input-placeholder, 
+textarea:-ms-input-placeholder {
+  color: #808080;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/*=============== login-gif ===============*/
+
+
+#loading-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 999;
+  display: none;
+}
+
+#loading-wrap .loading {
+  margin: -60px 0 0 -50px;
+  width: 100px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+}
+
+#loading-wrap .img-loading {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  background: url(./loading.gif) no-repeat center;
+  background-size: cover; 
+}
+
+#loading-wrap p {
+  color: rgb(24, 113, 81);
+}
+
+
+/*=============== Body ===============*/
+
+.login_interface {
+  border-radius: 11px;
+  border: 1px solid rgb(153, 228, 159);
+  padding: 50px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 400px;
+  margin-top: 330px;
+  background: rgba(91, 165, 97, 0.26);
+}
+
+.login_interface2 {
+  margin: auto;
+  width: 300px;
+}
+
+.login_interface2 label {
+  font-size: 20px;
+}
+
+.login_interface2 {
+  
+}
+
+.login_interface3 {
+  margin-top: 10px;
+  overflow: hidden;
+  text-align: right;
+}
+
+.login_interface3_001 label {
+  font-weight: bold;
+  margin-right: 27px;
+}
+
+
+.login_interface3_001 {
+  width: 100px;
+  float: left;
+}
+
+.login_interface3_002 {
+  width: 200px;
+  float: right;
+}
+
+.login_interface4 {
+  text-align: center;
+}
+
+.login_interface4 button {
+  width: 100px;
+}
+
+.gHeader {
+  text-align: center;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.sideBar {
+  width: 200px;
+  float: left;
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  padding-top: 50px;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  background: #545c64;
+  overflow-y: auto;
+  z-index: 9;
+}
+
+.sideBar .el-menu {
+  border-right: 0 !important;
+}
+
+.sideBar .el-menu-item.is-active {
+  background: rgba(67, 74, 80, 0.6) !important;
+}
+
+.conts {
+  padding: 70px 20px 20px 20px;
+  text-align: center;
+}
+
+.menuPage .menuList li {
+  margin: 0 20px;
+  display: inline;
+}
+
+.menuPage .menuList {
+  padding: 50px 0;
+}
+
+.menuPage .menuList li button {
+  padding: 24px 40px;
+}
