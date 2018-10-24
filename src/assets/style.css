@@ -238,3 +238,21 @@ textarea:-ms-input-placeholder {
 .menuPage .menuList li button {
   padding: 24px 40px;
 }
+
+.usersj {
+  padding: 15px 0 0 49px;
+}
+
+.usersj .usersj_add{
+  width: 1000px !important;
+}
+
+.usersj_add {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.usersj_add button {
+  width: 100px;
+  height: 40px;
+}

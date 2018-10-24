@@ -7,9 +7,9 @@
     </div>
 
     <ul class="menuList clearfix">
-      <li><el-button type="primary" >用户管理</el-button></li>
-      <li > <el-button type="primary">在线商城</el-button></li>
-      <li> <el-button type="primary" >密码管理</el-button></li>
+      <li><el-button type="primary" @click="goPage('usersj')">用户管理</el-button></li>
+      <li > <el-button type="primary" @click="goPage('goshop')">在线商城</el-button></li>
+      <li> <el-button type="primary" @click="goPage('userPassword')">密码管理</el-button></li>
     </ul>
   </div>
 </template>
