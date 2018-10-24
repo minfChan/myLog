@@ -1,13 +1,25 @@
 <template>
-  <div>在线购物</div>
+  <div>
+    
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+    
+    }
+  },
 
+  mounted() {
+    this.init()
+  },
+
+  methods: {
+    init() {
+      
+    },
+  }
 }
 </script>
-
-<style>
-
-</style>

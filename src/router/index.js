@@ -23,13 +23,13 @@ const routes = [
       {
         name: 'usersj',
         path: '/usersj',
-        component: resolve => require(['../pages/Log/usersj.vue'], resolve),
+        component: resolve => require(['../pages/user/usersj.vue'], resolve),
         meta: { requireAuth: true }
       },
       {
         name: 'userll',
         path: '/userll',
-        component: resolve => require(['../pages/Log/userll.vue'], resolve),
+        component: resolve => require(['../pages/user/userll.vue'], resolve),
         meta: { requireAuth: true }
       },
       {

@@ -16,6 +16,10 @@ Vue.use(ElementUI, { locale });
 import Loading from './components/loading'
 Vue.use(Loading)
 
+//Strings
+import Strings from '@/helper/String'
+Vue.prototype.Strings = Strings
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
