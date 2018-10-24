@@ -178,7 +178,7 @@ textarea:-ms-input-placeholder {
   margin: 0 auto;
   overflow: hidden;
   width: 400px;
-  margin-top: 330px;
+  margin-top: 10%;
   background: rgba(91, 165, 97, 0.26);
 }
 
@@ -261,7 +261,7 @@ textarea:-ms-input-placeholder {
 }
 
 .conts {
-  padding: 70px 20px 20px 20px;
+  padding: 70px 25% 20px 20px;
   text-align: center;
 }
 

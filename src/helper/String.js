@@ -10,7 +10,9 @@ const Labels = {
     { id: 1, name: 'admin', address: '重庆九龙坡 113号' }, 
     { id: 2, name: 'google', address: '加利福尼亚 1024街'}, 
     { id: 3, name: 'baidu', address: '北京海淀区 1024号'}, 
-    { id: 4, name: 'alibaba', address: '浙江杭州 1024 号'}
+    { id: 6, name: 'alibaba', address: '浙江杭州 1024 号'},
+    { id: 5, name: 'jiaguwen', address: 'USA 1024 号'},
+    { id: 4, name: 'vue', address: 'China 1024 号'}
   ]
 }
 

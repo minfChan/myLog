@@ -26,7 +26,7 @@
             </el-table-column>
             <el-table-column prop="操作">
               <template slot-scope="scope">
-                <el-button @click.native.prevent="userEdit(scope.$index, tableData)" plain size="mini">编辑</el-button>
+                <el-button @click.native.prevent="doEdit(scope.$index, tableData)" plain size="mini">编辑</el-button>
                 <el-button @click.native.prevent="Delete(scope.$index, tableData)" type="danger" size="mini">删除</el-button>
               </template>
             </el-table-column>
@@ -38,7 +38,7 @@
       </div>
       
       <div>
-        <el-dialog :title="item.curId > this.tableData[this.tableData.length - 1]? '用户信息编辑' : '用户信息新增'" :visible.sync="dialogFormVisible">
+        <el-dialog :title="curId? '用户信息新增' : '用户信息编辑'" :visible.sync="dialogFormVisible">
           <el-form :model="item" :rules="rules" ref="item">
             <el-form-item label="ID" :label-width="formLabelWidth">
               <div style="text-align: left">{{item.id}}</div>
@@ -52,7 +52,7 @@
           </el-form>
           <div slot="footer" class="dialog-footer">
             <el-button @click="dialogFormVisible = false">返 回</el-button>
-            <el-button type="primary" @click="addUser('item')">新 增</el-button>
+            <el-button type="primary" @click="addUser('item')">{{curId? '新增' : '确认'}}</el-button>
           </div>
         </el-dialog>
       </div>
@@ -67,7 +67,7 @@ export default {
     return {
       show: false,
       dialogFormVisible: false,
-      curId: '',
+      curId: false,
       formLabelWidth: '120px',
       eltable: [
         { prop:'id', label:'ID'},
@@ -104,34 +104,61 @@ export default {
 
   methods: {
     init() {
-
+      
     },
 
     doAdd() { 
+      this.curId = true;
+      let userCre = [];
+      for (var re in this.tableData) {
+        userCre.push(this.tableData[re].id)
+      }
+
+      let id = userCre.sort()[userCre.length - 1];
+      if (id > this.tableData.length) {
+        id = id + 1;
+      } else {
+        id = this.tableData.length + 1
+      }
+
       this.item = {
-        id: this.tableData[this.tableData.length - 1].id + 1,
+        id: id,
         name: '',
-        address: '',
-        dialogFormVisible: false,
+        address: ''
       };
       this.dialogFormVisible = true;
     },
 
-    addUser(formName) { 
-      this.$refs[formName].validate((valid) => {
-        if (!valid) {
-          return
-        }
-
-        this.tableData.push(JSON.parse(JSON.stringify(this.item)));
-        this.dialogFormVisible = false;
-      });
+    doEdit(idx, tal) {
+      this.curId = false;
+      this.dialogFormVisible = true;
+      this.edId = idx
+      this.item = JSON.parse(JSON.stringify(this.tableData[idx]));
+      this.tableData[idx] = this.item
     },
 
-    userEdit(idx, tal) {
-      this.curId = idx;
-      this.dialogFormVisible = true;
-      this.item = JSON.parse(JSON.stringify(this.tableData[idx]));
+    addUser(formName) { 
+      if (this.curId) {
+        this.$refs[formName].validate((valid) => {
+          if (!valid) {
+            return
+          }
+
+          this.tableData.push(JSON.parse(JSON.stringify(this.item)));
+          this.dialogFormVisible = false;
+        });
+      } else {
+        this.$refs[formName].validate((valid) => {
+          console.log(valid)
+          if (!valid) {
+            // this.rules.name[0].message
+            return
+          }
+          
+          this.$set(this.tableData, this.edId, this.item);
+          this.dialogFormVisible = false;
+        });
+      }
     },
 
     Delete(index, rows) {
