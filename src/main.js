@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueAxios from 'vue-axios'
 //Style
 import './assets/style.css'
 
@@ -19,6 +20,15 @@ Vue.use(Loading)
 //Strings
 import Strings from '@/helper/String'
 Vue.prototype.Strings = Strings
+
+//axios
+import axios from 'axios'
+Vue.prototype.$http = axios
+Vue.use(VueAxios, axios)
+
+//api
+import api from  '../config/api.js'
+Vue.prototype.api = api
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */

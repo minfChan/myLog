@@ -12,11 +12,21 @@ if (process.env.NODE_ENV == 'ppe') {
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+    //接口跨域了 请在这里配置 设置完后需要重启项目
+        '/v2': {
+        target: 'https://api.douban.com',
+        secure: false, // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+          pathRewrite: {
+          // /v2将代表target/v2  // 如果接口本身没有/api需要通过pathRewrite来重写了地址
+          '^/v2': '/v2' //个人见解 如果地址后只有一个字段,则写成/api
+          }
+        }        
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

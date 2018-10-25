@@ -14,13 +14,14 @@
         <el-menu-item index="2-1" @click="goPage('usersj')">用户数据</el-menu-item>
         <el-menu-item index="2-2" @click="goPage('userll')">用户浏览</el-menu-item>
 
-        <!-- <el-submenu index="2-4">
+        <el-submenu index="2-4">
           <template slot="title">选项4</template>
           <el-menu-item index="2-4-1">选项1</el-menu-item>
           <el-menu-item index="2-4-2">选项2</el-menu-item>
           <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu> -->
+        </el-submenu>
       </el-submenu>
+      <el-menu-item index="5" @click="goPage('literature')">文学艺苑</el-menu-item>
       <el-menu-item index="3" @click="goPage('goshop')">在线商城</el-menu-item>
       <el-menu-item index="4" @click="goPage('userPassword')">密码管理</el-menu-item>
     </el-menu>

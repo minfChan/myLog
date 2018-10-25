@@ -37,11 +37,11 @@ export default {
   },
   
   doLogin(data) {
-    // localStorage.setItem('', data.);登录时缓存
+    localStorage.setItem('username', data);
   },
 
   doLogout() {
-    // localStorage.removeItem(''); 退出时清除缓存
+    localStorage.removeItem('username'); 
   },
 
 }

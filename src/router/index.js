@@ -55,22 +55,16 @@ const router = new Router({
 	routes: routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   let bodyClass = '';
-//   if (to.name) {
-//     bodyClass = to.name;
-//   }
-//   
-
-// 	if (to.matched.some(r => r.meta.requireAuth)) {
-// 		if (localStorage.getItem('userId')) {
-// 			next();
-// 		} else {
-//       next('/login');
-// 		}
-// 	} else {
-// 		next();
-// 	}
-// })
+router.beforeEach((to, from, next) => {
+	if (to.matched.some(r => r.meta.requireAuth)) {
+		if (localStorage.getItem('username')) {
+			next();
+		} else {
+      next('/login');
+		}
+	} else {
+		next();
+	}
+})
 
 export default router;
