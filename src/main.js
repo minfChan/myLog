@@ -6,6 +6,7 @@ import router from './router'
 import VueAxios from 'vue-axios'
 //Style
 import './assets/style.css'
+import './assets/icon/iconfont.css'
 
 //element-ui
 import ElementUI from 'element-ui';

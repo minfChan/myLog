@@ -7,6 +7,7 @@
         <el-breadcrumb-item >用户数据</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
+    
 
     <div class="usersj_container" v-if="show">
       <div>
@@ -14,6 +15,7 @@
       <div>
         <div class="usersj">
           <el-table
+            v-loading="loading"
             :data="tableData"
             border
             stripe>
@@ -60,11 +62,12 @@
   </div>
   </transition>
 </template>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
 export default {
   data() {
     return {
+      loading: true,
       show: false,
       dialogFormVisible: false,
       curId: false,
@@ -75,7 +78,7 @@ export default {
         { prop:'address', label:'地址'}
       ],
 
-      tableData: this.Strings.Labels.TABELDATA,
+      tableData: [],
 
       item: {
         id: '',
@@ -104,7 +107,10 @@ export default {
 
   methods: {
     init() {
-      
+      setTimeout(res => {
+        this.tableData = this.Strings.Labels.TABELDATA;
+        this.loading = false
+      },700)
     },
 
     doAdd() { 
@@ -149,7 +155,6 @@ export default {
         });
       } else {
         this.$refs[formName].validate((valid) => {
-          console.log(valid)
           if (!valid) {
             // this.rules.name[0].message
             return

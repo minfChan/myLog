@@ -168,6 +168,23 @@ textarea:-ms-input-placeholder {
   color: rgb(24, 113, 81);
 }
 
+/*=============== element ===============*/
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+  background-color: #d3dce6;
+}
 
 /*=============== Body ===============*/
 
@@ -261,7 +278,7 @@ textarea:-ms-input-placeholder {
 }
 
 .conts {
-  padding: 70px 25% 20px 20px;
+  padding: 70px 20px 20px 20px;
   text-align: center;
 }
 
@@ -270,7 +287,12 @@ textarea:-ms-input-placeholder {
   display: inline;
 }
 
+.menuPage .menuList li button {
+
+}
+
 .menuPage .menuList {
+  min-width: 800px;
   padding: 50px 0;
 }
 
@@ -280,6 +302,11 @@ textarea:-ms-input-placeholder {
 
 .usersj {
   padding: 15px 0 0 49px;
+}
+
+.usersj_container {
+  margin-top: 40px;
+  padding-right: 25%;
 }
 
 .usersj .usersj_add{
@@ -294,4 +321,97 @@ textarea:-ms-input-placeholder {
 .usersj_add button {
   width: 100px;
   height: 40px;
+}
+
+/* literature */
+
+.literature_caroumap {
+  margin: 0 auto;
+  width: 78%;
+}
+
+.literature_content {
+  margin-top: 40px;
+}
+
+.literature_poetry {
+  margin-top: 30px;
+}
+
+table.literature_base {
+  margin: 0 auto;
+  color: #205929;
+  width: 74%;
+  max-width: 720px;
+  border-collapse: collapse;
+}
+
+table.literature_base td {
+  border: 1px solid #ffffff00;
+  padding: 15px;
+}
+
+table.literature_base tbody td {
+  width: 50%;
+}
+
+/* table.literature_base tbody tr:nth-child(odd),
+table.literature_base tfoot tr {
+  background: #f9f9f9;
+} */
+
+table.literature_base tbody td:hover {
+  background: #f5f5f5;
+}
+
+table.literature_base thead tr:hover {
+  background: #f5f5f5;
+}
+
+table.literature_base thead td {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+table.literature_base tbody td {
+  font-size: 20px;
+}
+
+table.literature_base tbody tr:first-child td:first-child {
+  text-align: right;
+}
+
+table.literature_base tbody tr:first-child td:last-child {
+  text-align: left;
+  padding-left: 5%;
+  font-weight: bold;
+}
+
+table.literature_base tbody tr:nth-child(2) td {
+  letter-spacing: 7px;
+}
+
+table.literature_base tbody td div {
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.editTitle {
+  color: #606266;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0 0 10px;
+  font-size: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+/* ghead */
+
+.gHeader_user {
+  padding: 20px 20px 0 0;
+  text-align: right;
+}
+
+.icon_loginout {
+  cursor: pointer;
 }

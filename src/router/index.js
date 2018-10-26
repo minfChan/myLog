@@ -43,6 +43,12 @@ const routes = [
         path: '/userPassword',
         component: resolve => require(['../pages/userPassword.vue'], resolve),
         meta: { requireAuth: true }
+      },
+      {
+        name: 'literature',
+        path: '/literature',
+        component: resolve => require(['../pages/study/literature.vue'], resolve),
+        meta: { requireAuth: true }
       }
     ]
   },

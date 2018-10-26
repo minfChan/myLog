@@ -8,24 +8,21 @@
 
     <ul class="menuList clearfix">
       <li><el-button type="primary" @click="goPage('usersj')">用户管理</el-button></li>
-      <li > <el-button type="primary" @click="goPage('goshop')">在线商城</el-button></li>
-      <li> <el-button type="primary" @click="goPage('userPassword')">密码管理</el-button></li>
+      <li><el-button type="primary" @click="goPage('literature')">文学艺苑</el-button></li>
+      <li><el-button type="primary" @click="goPage('goshop')">在线商城</el-button></li>
+      <li><el-button type="primary" @click="goPage('userPassword')">密码管理</el-button></li>
     </ul>
   </div>
 </template>
 
 <script>
-import Session from '@/helper/Session'
+import Session from "@/helper/Session";
 export default {
   data() {
-    return {
-
-    }
+    return {};
   },
 
-  created() {
-
-  },
+  created() {},
 
   methods: {
     goPage(name, query) {
@@ -35,9 +32,8 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 <style>
-
 </style>
