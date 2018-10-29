@@ -399,19 +399,64 @@ table.literature_base tbody td div {
 .editTitle {
   color: #606266;
   font-weight: bold;
-  margin-bottom: 20px;
-  padding: 0 0 10px;
+  margin-top: 20px;
+  padding: 30px 0 10px;
   font-size: 20px;
-  border-bottom: 2px solid #ccc;
+  border-top: 2px solid #ccc;
 }
 
 /* ghead */
 
 .gHeader_user {
-  padding: 20px 20px 0 0;
+  padding: 15px 20px 0 0;
   text-align: right;
 }
 
 .icon_loginout {
   cursor: pointer;
+}
+
+/* getWeather */
+
+.getWeather_img {
+  display: table-cell;
+	vertical-align: middle;
+  /* display: block;
+  word-break: break-all;
+  word-wrap: break-word; */
+  position: relative;
+  left: 42px;
+  top: 5px;
+}
+
+.getWeather_content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.getWeather_img > img {
+  display: table;
+  width: 100px;
+  height: 100px;
+}
+
+table.getWeather_table {
+  font-weight: bold;
+  margin: 0 auto;
+  color: #276581;
+  width: 80%;
+  max-width: 900px;
+  border-collapse: collapse;
+}
+
+table.getWeather_table td {
+  border-left: 1px solid #574b4b;
+  border-right: 1px solid #574b4b;
+  padding: 15px;
+  width: 28%;
+}
+
+table.getWeather_table thead tr:last-child {
+  font-size: 25px;
+  color: rgb(39, 108, 187)
 }
