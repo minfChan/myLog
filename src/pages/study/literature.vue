@@ -47,22 +47,36 @@
     <div class="editTitle">天气状况</div>
     <div class="getWeather">
       <div class="getWeather_content">
-        <!-- <div class="getWeather_img"> 
-           <img src="../images/duoyun2.png" />
-        </div> -->
         <div>
           <table class="getWeather_table">
             <thead>
               <tr>
                 <td>
                   <div class="getWeather_img"> 
-                    <img src="../images/duoyun2.png" />
+                    <img :src="imgUrl" />
                   </div>
                 </td>
                 <td colspan="3">
-                  <h1>
+                  <div class="theadtd_elrow">
+                    <el-row class="demo-autocomplete">
+                      <el-col :span="12">
+                        <el-autocomplete
+                          class="inline-input"
+                          v-model="cityItem.city"
+                          :fetch-suggestions="querySearch"
+                          placeholder="请输入查询城市"
+                        ></el-autocomplete>
+                      </el-col>
+                    </el-row>
+                  </div>
+                  <div class="theadtd_btn">
+                    <el-button @click="getWeather">查询</el-button>
+                  </div>
+                  <div class="theadtd_font">
                     {{cityItem.currCity}}
-                  </h1>
+                    {{cityItem.currTq}}
+                    {{cityItem.currWd}}
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -83,20 +97,9 @@
           </table>
         </div>
       </div>
-      <div>
-        <el-button @click="getWeather">按钮</el-button>
-        <el-button @click="getCity">城市</el-button>
-        <el-select v-model="cityItem.city" filterable placeholder="请选择">
-          <el-option
-            v-for="item in cityOptions"
-            :key="item.cid"
-            :label="item.location"
-            :value="item.location">
-          </el-option>
-        </el-select>
-        <el-button @click="test">test</el-button>
-      </div>
     </div>
+
+
   </div>
 </template>
 
@@ -121,14 +124,20 @@ export default {
         content: '',
       },
 
+      imgUrl: require('../images/duoyun2.png'),
       cityItem: {
         city: '',
         currCity: '',
+        currTq: '',
+        currWd: ''
       },
       weatherData: [],
-      cityList: [],
       cityOptions: []
     };
+  },
+
+  created() {
+    this.getCity();
   },
 
   mounted() {
@@ -155,8 +164,16 @@ export default {
   },
 
   methods: {
-    test() {
-      console.log(this.cityItem.city)
+    querySearch(queryString, cb) {
+      var cityOptions = this.cityOptions;
+      var results = queryString ? cityOptions.filter(this.createFilter(queryString)) : cityOptions;
+      cb(results);
+    },
+
+    createFilter(queryString) {
+      return (restaurant) => {
+        return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+      };
     },
   
     init() {
@@ -181,6 +198,13 @@ export default {
     },
 
     getWeather() {
+      if (!this.cityItem.city) {
+        this.$message({
+          type: 'open',
+          message: '请输入要查询的城市'
+        });
+        return
+      }
       this.$http.get(this.api.API_weather, {
          params: {
             city: this.cityItem.city,
@@ -194,10 +218,31 @@ export default {
             message: '未查询到有关 ' + this.cityItem.city + ' 的天气情况!'
           });
         }
-
-        this.cityItem.currCity = '当前城市: ' + data.data.city;
-        this.weatherData = data.data.forecast; 
-
+        let sky = data.data.forecast[0].type
+        if (sky == '阴') {
+          this.imgUrl = require('../images/yin.png')
+          this.cityItem.currCity = '当前城市: ' + data.data.city + '| ';
+          this.cityItem.currTq = '今日天气: ' + data.data.forecast[0].type + '| ';
+          this.cityItem.currWd = '今日温度: ' + data.data.wendu + '℃'
+          this.weatherData = data.data.forecast; 
+          return
+        }
+        if (sky == '晴') {
+          this.imgUrl = require('../images/qing.png')
+          this.cityItem.currCity = '当前城市: ' + data.data.city + '| ';
+          this.cityItem.currTq = '今日天气: ' + data.data.forecast[0].type + '| ';
+          this.cityItem.currWd = '今日温度: ' + data.data.wendu + '℃'
+          this.weatherData = data.data.forecast; 
+          return
+        }
+        if (sky == '多云') {
+          this.imgUrl = require('../images/duoyun2.png')
+          this.cityItem.currCity = '当前城市: ' + data.data.city + '| ';
+          this.cityItem.currTq = '今日天气: ' + data.data.forecast[0].type + '| ';
+          this.cityItem.currWd = '今日温度: ' + data.data.wendu + '℃'
+          this.weatherData = data.data.forecast; 
+          return
+        }
       })
       .catch(err => {
         
@@ -212,9 +257,9 @@ export default {
       })
       .then(res => {
         let data = res.data.HeWeather6[0].basic;
-        this.cityOptions = data;
         data.forEach(res => {
-          this.cityList.push(res.location)
+          res.value = res.location;
+          this.cityOptions.push(res)
         })
 
       })
@@ -222,6 +267,6 @@ export default {
 
       })
     }
-  }
-};
+  },
+}
 </script>

@@ -360,13 +360,13 @@ table.literature_base tfoot tr {
   background: #f9f9f9;
 } */
 
-table.literature_base tbody td:hover {
+/* table.literature_base tbody td:hover {
   background: #f5f5f5;
 }
 
 table.literature_base thead tr:hover {
   background: #f5f5f5;
-}
+} */
 
 table.literature_base thead td {
   font-size: 25px;
@@ -408,7 +408,7 @@ table.literature_base tbody td div {
 /* ghead */
 
 .gHeader_user {
-  padding: 15px 20px 0 0;
+  padding: 15px 20px 24px 0;
   text-align: right;
 }
 
@@ -419,6 +419,8 @@ table.literature_base tbody td div {
 /* getWeather */
 
 .getWeather_img {
+  width: 100px;
+  height: 100px;
   display: table-cell;
 	vertical-align: middle;
   /* display: block;
@@ -456,7 +458,31 @@ table.getWeather_table td {
   width: 28%;
 }
 
+table.getWeather_table thead tr:first-child td{
+  border-bottom: 1px solid #574b4b;
+}
+
+table.getWeather_table thead tr:first-child td:first-child {
+  border-right: 1px solid #fff;
+}
+
 table.getWeather_table thead tr:last-child {
   font-size: 25px;
   color: rgb(39, 108, 187)
 }
+
+.theadtd_btn button {
+  position: relative;
+  top: -40px;
+  left: 60px;
+}
+
+.theadtd_elrow {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.theadtd_font {
+  font-size: 25px;
+}
+

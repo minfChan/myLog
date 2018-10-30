@@ -40,8 +40,8 @@ export default {
     localStorage.setItem('username', data);
   },
 
-  doLogout() {
-    localStorage.removeItem('username'); 
+  doLogout(data) {
+    localStorage.removeItem(data); 
   },
 
 }

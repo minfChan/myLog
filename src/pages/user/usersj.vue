@@ -152,6 +152,10 @@ export default {
 
           this.tableData.push(JSON.parse(JSON.stringify(this.item)));
           this.dialogFormVisible = false;
+          this.$message({
+            type: 'success',
+            message: '新增成功!'
+          });
         });
       } else {
         this.$refs[formName].validate((valid) => {
@@ -162,6 +166,10 @@ export default {
           
           this.$set(this.tableData, this.edId, this.item);
           this.dialogFormVisible = false;
+          this.$message({
+            type: 'success',
+            message: '编辑成功!'
+          });
         });
       }
     },

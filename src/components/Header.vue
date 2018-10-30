@@ -89,7 +89,21 @@ export default {
     },
 
     loginOut() {
-      alert(1)
+      this.$confirm('确认退出当前 ' + this.currUser + ' 账号吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$router.push('/log');
+        localStorage.doLogout(this.currUser);
+        
+        this.$message({
+          type: 'success',
+          message: '操作成功!'
+        });
+      }).catch(() => {
+       
+      });
     },
 
     goPage(name, query) {
